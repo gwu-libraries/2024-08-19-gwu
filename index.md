@@ -3,14 +3,14 @@ layout: workshop      # DON'T CHANGE THIS.
 # More detailed instructions (including how to fill these variables for an
 # online workshop) are available at
 # https://carpentries.github.io/workshop-template/customization/index.html
-venue: "George Washington University"        # brief name of the institution that hosts the workshop without address (e.g., "Euphoric State University")
+venue: "Data Carpentry Genomics<br>@ George Washington University"        # brief name of the institution that hosts the workshop without address (e.g., "Euphoric State University")
 address: "2130 H St., NW, Washington, DC 20052"      # full street address of workshop (e.g., "Room A, 123 Forth Street, Blimingen, Euphoria"), videoconferencing URL, or 'online'
 country: "us"      # lowercase two-letter ISO country code such as "fr" (see https://en.wikipedia.org/wiki/ISO_3166-1#Current_codes) for the institution that hosts the workshop
 language: "en"     # lowercase two-letter ISO language code such as "fr" (see https://en.wikipedia.org/wiki/List_of_ISO_639-1_codes) for the workshop
 latitude: "45"        # decimal latitude of workshop venue (use https://www.latlong.net/)
 longitude: "-1"       # decimal longitude of the workshop venue (use https://www.latlong.net)
-humandate: "Aug. 19-21, 2024"    # human-readable dates for the workshop (e.g., "Feb 17-18, 2020")
-humantime: ""    # human-readable times for the workshop e.g., "9:00 am - 4:30 pm CEST (7:00 am - 2:30 pm UTC)"
+humandate: "August 19-21, 2024"    # human-readable dates for the workshop (e.g., "Feb 17-18, 2020")
+humantime: "August 19-20 - 9:00am-5:00pm EDT<br>August 21 - 9:00am-12:30pm EDT"    # human-readable times for the workshop e.g., "9:00 am - 4:30 pm CEST (7:00 am - 2:30 pm UTC)"
 startdate: 2024-08-19      # machine-readable start date for the workshop in YYYY-MM-DD format like 2015-01-01
 enddate: 2024-08-21        # machine-readable end date for the workshop in YYYY-MM-DD format like 2015-01-02
 instructor: ["Dan Kerchner", "Clark Gaylord", "Chiraag Gohel"] # boxed, comma-separated list of instructors' names as strings, like ["Kay McNulty", "Betty Jennings", "Betty Snyder"]
@@ -38,7 +38,7 @@ And run 'make workshop-check' *before* committing to make sure that changes are 
 For a workshop please delete the following block until the next dashed-line
 {% endcomment %}
 
-
+{% comment %}
 <div class="alert alert-danger">
 This is the workshop template. Delete these lines and use it to
 <a href="https://carpentries.github.io/workshop-template/customization/index.html">customize</a>
@@ -53,6 +53,7 @@ For workshops teaching a lesson in The Carpentries Incubator,
 remember to uncomment the `incubator_lesson_site`, `incubator_pre_survey`, and `incubator_post_survey`
 fields in `_config.yml`
 </div>
+{% endcomment %}
 
 {% comment %}
 8< ============================= until here ==================
@@ -397,17 +398,38 @@ of code below the Schedule `<h2>` header below with
 
 <h2 id="schedule">Schedule</h2>
 
-{% if site.carpentry == "swc" %}
-{% include swc/schedule.html %}
-{% elsif site.carpentry == "dc" %}
-{% include dc/schedule.html %}
-{% elsif site.carpentry == "lc" %}
-{% include lc/schedule.html %}
-{% elsif site.carpentry == "incubator" %}
-This workshop is teaching a lesson in [The Carpentries Incubator](https://carpentries-incubator.org/).
-Please check [the lesson homepage]({{ site.incubator_lesson_site }}) for a list of lesson sections and estimated timings.
-{% endif %}
+<div class="row">
+  <div class="col-md-6">
+    <h3>Day 1</h3>
+    <table class="table table-striped">
+      <tr>
+	<td>Before starting</td>
+	<td><a href="{{ site.pre_survey }}{{ site.github.project_title }}" target="_blank">Pre-workshop survey</a></td>
+      </tr>
+      <tr><td>Morning</td> <td> <a href="https://gwu-libraries.github.io/organization-genomics/">Project Organization and Management</a></td></tr>
+      <tr><td></td><td><a href="https://gwu-libraries.github.io/cloud-genomics/">Introduction to Cloud Computing for Genomics</a></td></tr>
+      <tr><td> </td><td><a href="https://gwu-libraries.github.io/shell-genomics/">Introduction to the Command Line</a></td></tr>
+      <tr><td>Afternoon</td><td><a href="https://gwu-libraries.github.io/shell-genomics/">Introduction to the Command Line (continued)</a></td></tr>			
+      <tr><td></td><td><a href="https://gwu-libraries.github.io/wrangling-genomics/">Data Wrangling and Processing</a></td></tr>
+    </table>
+  </div>
+  <div class="col-md-6">
+    <h3>Day 2</h3>
+    <table class="table table-striped">
+	 <tr><td>Morning</td><td><a href="https://gwu-libraries.github.io/wrangling-genomics/">Data Wrangling and Processing (continued)</a></td></tr>
+	 <tr><td>Afternoon</td><td><a href="https://gwu-libraries.github.io/genomics-r-intro/">Intro to R and RStudio for Genomics</a></td></tr>
+    </table>
+    <h3>Day 3</h3>
+    <table class="table table-striped">
+	<tr><td>Morning</td><td><a href="https://gwu-libraries.github.io/genomics-r-intro/">Intro to R and RStudio for Genomics (continued)</a></td></tr>
+      <tr>
+	<td>Evening</td>
+	<td><a href="{{ site.post_survey }}{{ site.github.project_title }}" target="_blank">Post-workshop survey</a></td>
+      </tr>
 
+    </table>
+  </div>
+</div>
 {% comment %}
 Edit/replace the text above if you want to include a schedule table.
 See the contents of the _includes/custom-schedule.html file for an example of
@@ -435,18 +457,8 @@ please preview your site before committing, and make sure to run
 
 <h2 id="setup">Setup</h2>
 
-<p>
-  To participate in a
-  {% if site.carpentry == "swc" %}
-  Software Carpentry
-  {% elsif site.carpentry == "dc" %}
-  Data Carpentry
-  {% elsif site.carpentry == "lc" %}
-  Library Carpentry
-  {% endif %}
-  workshop,
-  you will need access to software as described below.
-  In addition, you will need an up-to-date web browser.
+
+<p>The <a href="https://gwu-libraries.github.io/genomics-workshop/instructor/index.html#setup">setup instructions for the Data Carpentry Genomics workshop</a> can be found at <a href="https://gwu-libraries.github.io/genomics-workshop/">the workshop overview site</a>.  In addition, you will need an up-to-date web browser.
 </p>
 <p>
   We maintain a list of common issues that occur during installation as a reference for instructors
@@ -454,33 +466,3 @@ please preview your site before committing, and make sure to run
   <a href = "{{site.swc_github}}/workshop-template/wiki/Configuration-Problems-and-Solutions">Configuration Problems and Solutions wiki page</a>.
 </p>
 
-{% comment %}
-For online workshops, the section below provides:
-- installation instructions for the Zoom client
-- recommendations for setting up Learners' workspace so they can follow along
-  the instructions and the videoconferencing
-
-If you do not use Zoom for your online workshop, edit the file
-`_includes/install_instructions/videoconferencing.html`
-to include the relevant installation instructions.
-{% endcomment %}
-{% if online != "false" %}
-{% include install_instructions/videoconferencing.html %}
-{% endif %}
-
-{% comment %}
-These are the installation instructions for the tools used
-during the workshop.
-{% endcomment %}
-
-{% if site.carpentry == "swc" %}
-{% include swc/setup.html %}
-{% elsif site.carpentry == "dc" %}
-{% include dc/setup.html %}
-{% elsif site.carpentry == "lc" %}
-{% include lc/setup.html %}
-{% elsif site.carpentry == "incubator" %}
-Please check the "Setup" page of
-[the lesson site]({{ site.incubator_lesson_site }}) for instructions to follow
-to obtain the software and data you will need to follow the lesson.
-{% endif %}
