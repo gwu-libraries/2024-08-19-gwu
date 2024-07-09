@@ -309,17 +309,27 @@ Edit the text to match who can attend the workshop. For instance:
 
 <hr/>
 
+<h2 id="registration">Registration</h2>
+<p>
+<strong>Registration is required for this workshop.</strong>  The registration form can be accessed via the button below.
+</p>
+<p class="text-center">
+  <a href="https://forms.gle/bQDNZX1pTW2Bz1KN7" target="_blank">
+    <button type="button" class="btn btn-info">Registration form</button>
+  </a>
+</p>
+
 {% comment%}
 CODE OF CONDUCT
 {% endcomment %}
 <h2 id="code-of-conduct">Code of Conduct</h2>
 
 <p>
-Everyone who participates in Carpentries activities is required to conform to the <a href="https://docs.carpentries.org/topic_folders/policies/code-of-conduct.html">Code of Conduct</a>. This document also outlines how to report an incident if needed.
+Everyone who participates in Carpentries activities is required to conform to the <a href="https://docs.carpentries.org/topic_folders/policies/code-of-conduct.html" target="_blank">Code of Conduct</a>. This document also outlines how to report an incident if needed.
 </p>
 
 <p class="text-center">
-  <a href="https://goo.gl/forms/KoUfO53Za3apOuOK2">
+  <a href="https://goo.gl/forms/KoUfO53Za3apOuOK2" target="_blank">
     <button type="button" class="btn btn-info">Report a Code of Conduct Incident</button>
   </a>
 </p>
